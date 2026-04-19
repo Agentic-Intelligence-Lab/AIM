@@ -33,7 +33,7 @@ from wan_va.utils import FlowMatchScheduler, data_seq_to_patch, get_mesh_id, ini
 from wan_va.configs import VA_CONFIGS
 
 # ── Config ────────────────────────────────────────────────────────────────────
-CKPT_DIR = ROOT / "full_train_b2_output/checkpoints/checkpoint_step_1200/transformer"
+CKPT_DIR = ROOT / "uni-checkpoints/checkpoint_step_1200/transformer"
 OUT_DIR  = ROOT / "infer_demo_step1200"
 DEVICE   = torch.device("cuda:0")
 DTYPE    = torch.bfloat16

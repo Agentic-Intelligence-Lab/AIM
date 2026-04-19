@@ -30,7 +30,7 @@ from wan_va.configs import VA_CONFIGS
 
 # ── Configuration ────────────────────────────────────────────────────────────
 CKPT_STEP = 1200
-CKPT_DIR  = ROOT / f"full_train_b2_output/checkpoints/checkpoint_step_{CKPT_STEP}"
+CKPT_DIR  = ROOT / f"uni-checkpoints/checkpoint_step_{CKPT_STEP}"
 OUT_DIR   = ROOT / f"infer_mask_fullrun_step{CKPT_STEP}"
 DEVICE    = torch.device("cuda:0")
 NUM_STEPS = 25

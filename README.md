@@ -1,8 +1,8 @@
-# LingBot-VA-UNI
+# unified-model
 
-LingBot-VA-UNI is a research codebase for training, serving, and evaluating a LingBot-VA style world-action model built on top of a Wan 2.2 video-diffusion backbone. This repository is organized as a source-code release for the code paths that are actually present here: model training, mask/value-branch finetuning, online inference serving, offline debugging, and RoboTwin evaluation.
+`unified-model` is a research codebase for training, serving, and evaluating a LingBot-VA style world-action model built on top of a Wan 2.2 video-diffusion backbone. This repository is organized as a source-code release for the code paths that are actually present here: model training, mask/value-branch finetuning, online inference serving, offline debugging, and RoboTwin evaluation.
 
-**Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) | [Shared external model bundle](https://huggingface.co/datasets/SnoopyFan/unified-model/tree/main) | [Public checkpoint mirror](https://huggingface.co/AUTMOEN999/lingbot-va-uni-checkpoints)
+**Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) | [Shared external model bundle](https://huggingface.co/datasets/SnoopyFan/unified-model/tree/main) | [Public checkpoint mirror](https://huggingface.co/AUTMOEN999/unified-model-checkpoints)
 
 > This repository is intentionally code-only. Large checkpoints, generated artifacts, latent datasets, and machine-specific outputs are kept outside Git history and should be distributed through external storage such as Hugging Face.
 
@@ -25,7 +25,7 @@ LingBot-VA-UNI is a research codebase for training, serving, and evaluating a Li
 
 ## What Is Not In This Repository
 
-- Large checkpoints such as `full_train_b2_output/`
+- Large training checkpoints and output directories
 - Pretrained Wan 2.2 model weights
 - LeRobot-format latent datasets
 - Generated videos, logs, and experiment outputs
@@ -38,23 +38,17 @@ This codebase depends on assets that are intentionally stored outside GitHub.
 | Asset | Status | Location |
 | --- | --- | --- |
 | Shared external model bundle | Available | https://huggingface.co/datasets/SnoopyFan/unified-model/tree/main |
-| Public checkpoint mirror for `uni-checkpoints/` | Uploaded, public | https://huggingface.co/AUTMOEN999/lingbot-va-uni-checkpoints |
+| Public checkpoint mirror for `uni-checkpoints/` | Uploaded, public | https://huggingface.co/AUTMOEN999/unified-model-checkpoints |
 | Wan 2.2 pretrained model directory | Required for training/inference | User-provided local path |
 | LeRobot latent dataset for RoboTwin | Required for training/evaluation | User-provided local path |
 | Local RoboTwin repository | Required for simulator-based evaluation | Local checkout |
-
-Release rule of thumb:
-
-- keep code in GitHub
-- keep large checkpoints and archives in Hugging Face or lab-controlled object storage
-- reference external assets from this README instead of committing them into Git
 
 ## Related Technical Report
 
 This repository is related to the following technical report:
 
 - `AIM: Intent-Aware Unified World Action Modeling with Spatial Value Maps`
-- Authors: Liaoyuan Fan, Zetian Xu, Chen Cao, Wenyao Zhang, Mingqi Yuan, Jiayu Chen
+- Authors: Liaoyuan Fan, Zetian Xu, Chen Cao, Wenyao Zhang, Mingqi Yuan, and Jiayu Chen
 - arXiv: `2604.11135`
 
 Important scope note:
@@ -90,8 +84,8 @@ Important scope note:
 The repository does not yet ship with one fully pinned environment export, but it includes a LeRobot dependency file at `requirements/lerobot.txt`. A practical starting point is:
 
 ```bash
-conda create -n lingbot-va python=3.11 -y
-conda activate lingbot-va
+conda create -n unified-model python=3.11 -y
+conda activate unified-model
 
 # Install the correct PyTorch build for your CUDA version first.
 # Example only:
@@ -119,7 +113,7 @@ The repository does not include large runtime assets. Before launching experimen
    - `text_encoder/`
    - `tokenizer/`
 2. A LeRobot-format latent dataset directory for RoboTwin data
-3. Optional finetuned checkpoints such as `full_train_b2_output/checkpoints/...`
+3. Optional finetuned checkpoints such as `uni-checkpoints/checkpoint_step_4500/...`
 4. A local RoboTwin repository if you want to run simulator-based evaluation
 
 ## Configuration
@@ -227,26 +221,10 @@ The main runnable entry points in the current codebase are:
 If you use this repository in academic work, please cite the related technical report:
 
 ```bibtex
-@article{fan2026aim,
+@article{aim2026,
   title   = {AIM: Intent-Aware Unified World Action Modeling with Spatial Value Maps},
-  author  = {Fan, Liaoyuan and Xu, Zetian and Cao, Chen and Zhang, Wenyao and Yuan, Mingqi and Chen, Jiayu},
+  author  = {Liaoyuan Fan and Zetian Xu and Chen Cao and Wenyao Zhang and Mingqi Yuan and Jiayu Chen},
   journal = {arXiv preprint arXiv:2604.11135},
   year    = {2026}
 }
 ```
-
-## Release Hygiene
-
-Do not commit:
-
-- `full_train_b2_output/` or any other checkpoint/output directory
-- downloaded datasets or latent caches
-- generated videos, logs, or debug dumps
-- real API keys, SSH credentials, or machine-specific secrets
-
-Before pushing to GitHub, verify:
-
-- large files are ignored and not staged
-- model checkpoints remain hosted externally
-- README paths and commands still match the current repository layout
-- any remaining cluster-specific defaults are either intentional or documented
