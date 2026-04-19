@@ -1,17 +1,53 @@
 # LingBot-VA-UNI
 
-LingBot-VA-UNI is a research codebase for training, serving, and evaluating a LingBot-VA style world-action model built on top of a Wan 2.2 video-diffusion backbone. This repository is being prepared as a lab-facing source-code release: it packages the code paths that are actually present here for model training, mask/value-branch finetuning, online inference, offline debugging, and RoboTwin evaluation.
+LingBot-VA-UNI is a research codebase for training, serving, and evaluating a LingBot-VA style world-action model built on top of a Wan 2.2 video-diffusion backbone. This repository is organized as a source-code release for the code paths that are actually present here: model training, mask/value-branch finetuning, online inference serving, offline debugging, and RoboTwin evaluation.
 
-This repository is intended to host source code only. Large checkpoints, generated artifacts, latent datasets, and environment-specific outputs are kept outside Git history by design.
+**Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) | [External model bundle](https://huggingface.co/datasets/SnoopyFan/unified-model/tree/main)
 
-## Highlights
+> This repository is intentionally code-only. Large checkpoints, generated artifacts, latent datasets, and machine-specific outputs are kept outside Git history and should be distributed through external storage such as Hugging Face.
 
-- Base RGB-plus-action post-training under `wan_va/train.py`
-- Joint video-plus-mask finetuning under `wan_va/train_mask_joint.py`
-- Online inference serving under `wan_va/wan_va_server.py`
-- Offline inference and debugging scripts under `scripts/`
-- RoboTwin evaluation clients and launch helpers under `evaluation/robotwin/`
-- Lightweight dependency file for the LeRobot stack under `requirements/lerobot.txt`
+## Overview
+
+- Related technical report: `AIM: Intent-Aware Unified World Action Modeling with Spatial Value Maps` (`arXiv:2604.11135`)
+- Main training entrypoints: `wan_va/train.py`, `wan_va/train_mask_joint.py`
+- Online serving entrypoint: `wan_va/wan_va_server.py`
+- Evaluation code: `evaluation/robotwin/`
+- Lightweight dependency file: `requirements/lerobot.txt`
+
+## What Is In This Repository
+
+- Training code for the base RGB-plus-action post-training pipeline
+- Joint video-plus-mask finetuning code
+- Online inference server and deployment helpers
+- Offline inference and debugging scripts
+- RoboTwin evaluation clients and launch scripts
+- Small example images for sanity checks and demos
+
+## What Is Not In This Repository
+
+- Large checkpoints such as `full_train_b2_output/`
+- Pretrained Wan 2.2 model weights
+- LeRobot-format latent datasets
+- Generated videos, logs, and experiment outputs
+- Full auxiliary pipelines described outside the current code snapshot
+
+## External Assets
+
+This codebase depends on assets that are intentionally stored outside GitHub.
+
+| Asset | Status | Location |
+| --- | --- | --- |
+| Shared external model bundle | Available | https://huggingface.co/datasets/SnoopyFan/unified-model/tree/main |
+| Local training checkpoint directory `full_train_b2_output/` | External-only, not committed to Git | Mirror this checkpoint bundle to Hugging Face and link it here |
+| Wan 2.2 pretrained model directory | Required for training/inference | User-provided local path |
+| LeRobot latent dataset for RoboTwin | Required for training/evaluation | User-provided local path |
+| Local RoboTwin repository | Required for simulator-based evaluation | Local checkout |
+
+Release rule of thumb:
+
+- keep code in GitHub
+- keep large checkpoints and archives in Hugging Face or lab-controlled object storage
+- reference external assets from this README instead of committing them into Git
 
 ## Related Technical Report
 
@@ -75,9 +111,7 @@ Additional evaluation dependencies:
 - `sapien` for RoboTwin simulation and rendering
 - a local RoboTwin checkout for simulator-based evaluation
 
-## External Assets
-
-This codebase depends on assets that are not stored in Git:
+The repository does not include large runtime assets. Before launching experiments, prepare:
 
 1. A Wan 2.2 style pretrained model directory containing at least:
    - `transformer/`
@@ -87,16 +121,6 @@ This codebase depends on assets that are not stored in Git:
 2. A LeRobot-format latent dataset directory for RoboTwin data
 3. Optional finetuned checkpoints such as `full_train_b2_output/checkpoints/...`
 4. A local RoboTwin repository if you want to run simulator-based evaluation
-
-Current externally shared model bundle:
-
-- https://huggingface.co/datasets/SnoopyFan/unified-model/tree/main
-
-Recommended release practice:
-
-- keep checkpoints and archives external to this code repository
-- link them from the README rather than committing them into Git
-- mirror important assets to a lab-controlled storage location when possible
 
 ## Configuration
 
