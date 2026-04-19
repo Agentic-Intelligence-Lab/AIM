@@ -2,7 +2,7 @@
 
 LingBot-VA-UNI is a research codebase for training, serving, and evaluating a LingBot-VA style world-action model built on top of a Wan 2.2 video-diffusion backbone. This repository is organized as a source-code release for the code paths that are actually present here: model training, mask/value-branch finetuning, online inference serving, offline debugging, and RoboTwin evaluation.
 
-**Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) | [Shared external model bundle](https://huggingface.co/datasets/SnoopyFan/unified-model/tree/main) | [Private checkpoint mirror](https://huggingface.co/AUTMOEN999/lingbot-va-uni-checkpoints)
+**Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) | [Shared external model bundle](https://huggingface.co/datasets/SnoopyFan/unified-model/tree/main) | [Public checkpoint mirror](https://huggingface.co/AUTMOEN999/lingbot-va-uni-checkpoints)
 
 > This repository is intentionally code-only. Large checkpoints, generated artifacts, latent datasets, and machine-specific outputs are kept outside Git history and should be distributed through external storage such as Hugging Face.
 
@@ -38,7 +38,7 @@ This codebase depends on assets that are intentionally stored outside GitHub.
 | Asset | Status | Location |
 | --- | --- | --- |
 | Shared external model bundle | Available | https://huggingface.co/datasets/SnoopyFan/unified-model/tree/main |
-| Private checkpoint mirror for `full_train_b2_output/` | Uploaded, private | https://huggingface.co/AUTMOEN999/lingbot-va-uni-checkpoints |
+| Public checkpoint mirror for `uni-checkpoints/` | Uploaded, public | https://huggingface.co/AUTMOEN999/lingbot-va-uni-checkpoints |
 | Wan 2.2 pretrained model directory | Required for training/inference | User-provided local path |
 | LeRobot latent dataset for RoboTwin | Required for training/evaluation | User-provided local path |
 | Local RoboTwin repository | Required for simulator-based evaluation | Local checkout |
