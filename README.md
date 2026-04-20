@@ -1,8 +1,8 @@
-# unified-model
+# Unified Model
 
 `unified-model` is a research codebase for training, serving, and evaluating a LingBot-VA style world-action model built on top of a Wan 2.2 video-diffusion backbone. This repository is organized as a source-code release for the code paths that are actually present here: model training, mask/value-branch finetuning, online inference serving, offline debugging, and RoboTwin evaluation.
 
-**Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) | [Shared external model bundle](https://huggingface.co/datasets/SnoopyFan/unified-model/tree/main) | [Public checkpoint mirror](https://huggingface.co/AUTMOEN999/unified-model-checkpoints)
+**Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) | [Public checkpoint mirror](https://huggingface.co/AUTMOEN999/unified-model-checkpoints)
 
 > This repository is intentionally code-only. Large checkpoints, generated artifacts, latent datasets, and machine-specific outputs are kept outside Git history and should be distributed through external storage such as Hugging Face.
 
@@ -26,22 +26,14 @@
 ## What Is Not In This Repository
 
 - Large training checkpoints and output directories
-- Pretrained Wan 2.2 model weights
-- LeRobot-format latent datasets
 - Generated videos, logs, and experiment outputs
 - Full auxiliary pipelines described outside the current code snapshot
 
 ## External Assets
 
-This codebase depends on assets that are intentionally stored outside GitHub.
+Public checkpoint mirror:
 
-| Asset | Status | Location |
-| --- | --- | --- |
-| Shared external model bundle | Available | https://huggingface.co/datasets/SnoopyFan/unified-model/tree/main |
-| Public checkpoint mirror for `uni-checkpoints/` | Uploaded, public | https://huggingface.co/AUTMOEN999/unified-model-checkpoints |
-| Wan 2.2 pretrained model directory | Required for training/inference | User-provided local path |
-| LeRobot latent dataset for RoboTwin | Required for training/evaluation | User-provided local path |
-| Local RoboTwin repository | Required for simulator-based evaluation | Local checkout |
+- `https://huggingface.co/AUTMOEN999/unified-model-checkpoints`
 
 ## Related Technical Report
 
@@ -103,18 +95,8 @@ pip install -r requirements/lerobot.txt
 Additional evaluation dependencies:
 
 - `sapien` for RoboTwin simulation and rendering
-- a local RoboTwin checkout for simulator-based evaluation
 
-The repository does not include large runtime assets. Before launching experiments, prepare:
-
-1. A Wan 2.2 style pretrained model directory containing at least:
-   - `transformer/`
-   - `vae/`
-   - `text_encoder/`
-   - `tokenizer/`
-2. A LeRobot-format latent dataset directory for RoboTwin data
-3. Optional finetuned checkpoints such as `uni-checkpoints/checkpoint_step_4500/...`
-4. A local RoboTwin repository if you want to run simulator-based evaluation
+Some experiments require additional local runtime assets and environment setup beyond a fresh clone. The public checkpoint mirror linked above is provided separately from this GitHub repository.
 
 ## Configuration
 
