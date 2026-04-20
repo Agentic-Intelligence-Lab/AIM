@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /szeluresearch/fly/unified-model
+cd /szeluresearch/fly/AIM
 
 export TOKENIZERS_PARALLELISM=false
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
@@ -19,5 +19,5 @@ python -m torch.distributed.run \
   --tee 3 \
   -m wan_va.train_mask_joint \
   --config-name robotwin_mask_joint \
-  --save-root /szeluresearch/fly/unified-model/full_train_b2_output \
-  > /szeluresearch/fly/unified-model/full_train_b2_node1.log 2>&1
+  --save-root /szeluresearch/fly/AIM/full_train_b2_output \
+  > /szeluresearch/fly/AIM/full_train_b2_node1.log 2>&1

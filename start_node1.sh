@@ -1,6 +1,6 @@
 #!/bin/bash
 # Run on node 1 (remote). Log goes to shared storage.
-cd /szeluresearch/fly/unified-model
+cd /szeluresearch/fly/AIM
 export TOKENIZERS_PARALLELISM=false
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 python -m torch.distributed.run \
@@ -12,5 +12,5 @@ python -m torch.distributed.run \
   --tee 3 \
   -m wan_va.train_mask_joint \
   --config-name robotwin_mask_joint_overfit \
-  --save-root /szeluresearch/fly/unified-model/joint_overfit_v4_output \
-  >> /szeluresearch/fly/unified-model/joint_overfit_v4b_node1.log 2>&1
+  --save-root /szeluresearch/fly/AIM/joint_overfit_v4_output \
+  >> /szeluresearch/fly/AIM/joint_overfit_v4b_node1.log 2>&1

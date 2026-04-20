@@ -1,8 +1,8 @@
 # AIM
 
-`unified-model` is a research codebase for training, serving, and evaluating a LingBot-VA style world-action model built on top of a Wan 2.2 video-diffusion backbone. This repository is organized as a source-code release for the code paths that are actually present here: model training, mask/value-branch finetuning, online inference serving, offline debugging, and RoboTwin evaluation.
+`AIM` is a research codebase for training, serving, and evaluating a LingBot-VA style world-action model built on top of a Wan 2.2 video-diffusion backbone. This repository is organized as a source-code release for the code paths that are actually present here: model training, mask/value-branch finetuning, online inference serving, offline debugging, and RoboTwin evaluation.
 
-**Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) | [Public checkpoint mirror](https://huggingface.co/AUTMOEN999/unified-model-checkpoints)
+**Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) | [Public checkpoint mirror](https://huggingface.co/AUTMOEN999/AIM)
 
 > This repository is intentionally code-only. Large checkpoints, generated artifacts, latent datasets, and machine-specific outputs are kept outside Git history and should be distributed through external storage such as Hugging Face.
 
@@ -33,7 +33,7 @@
 
 Public checkpoint mirror:
 
-- `https://huggingface.co/AUTMOEN999/unified-model-checkpoints`
+- `https://huggingface.co/AUTMOEN999/AIM`
 
 ## Related Technical Report
 
@@ -76,8 +76,8 @@ Important scope note:
 The repository does not yet ship with one fully pinned environment export, but it includes a LeRobot dependency file at `requirements/lerobot.txt`. A practical starting point is:
 
 ```bash
-conda create -n unified-model python=3.11 -y
-conda activate unified-model
+conda create -n aim python=3.11 -y
+conda activate aim
 
 # Install the correct PyTorch build for your CUDA version first.
 # Example only:
