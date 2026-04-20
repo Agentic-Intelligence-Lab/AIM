@@ -1,4 +1,4 @@
-# Unified Model
+# AIM
 
 `unified-model` is a research codebase for training, serving, and evaluating a LingBot-VA style world-action model built on top of a Wan 2.2 video-diffusion backbone. This repository is organized as a source-code release for the code paths that are actually present here: model training, mask/value-branch finetuning, online inference serving, offline debugging, and RoboTwin evaluation.
 
