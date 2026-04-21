@@ -2,7 +2,7 @@
 
 `AIM` is a research codebase for training, serving, and evaluating a LingBot-VA style world-action model built on top of a Wan 2.2 video-diffusion backbone. This repository is organized as a source-code release for the code paths that are actually present here: model training, mask/value-branch finetuning, online inference serving, offline debugging, and RoboTwin evaluation.
 
-**Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) | [Public checkpoint mirror](https://huggingface.co/AUTMOEN999/AIM)
+**Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) 
 
 > This repository is intentionally code-only. Large checkpoints, generated artifacts, latent datasets, and machine-specific outputs are kept outside Git history and should be distributed through external storage such as Hugging Face.
 
