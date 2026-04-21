@@ -4,7 +4,7 @@
 
 **Quick links:** [Technical report](https://arxiv.org/abs/2604.11135) 
 
-> This repository is intentionally code-only. Large checkpoints, generated artifacts, latent datasets, and machine-specific outputs are kept outside Git history and should be distributed through external storage such as Hugging Face.
+> This repository is intentionally code-only. Checkpoints, generated artifacts, latent datasets, and machine-specific outputs are kept outside Git history and should be distributed through external storage such as Hugging Face.
 
 ## Overview
 
